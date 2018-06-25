@@ -44,7 +44,7 @@ socket.on('updateUserList', function (users) {
     var frag = document.createDocumentFragment();
 
     const ol = document.createElement('ol');
-    
+
     users.forEach(function (user) {
         var li = document.createElement('li')
         li.textContent = user;
@@ -92,7 +92,6 @@ document.querySelector('#message-form').addEventListener('submit', function (e) 
     var messageTextBox = document.querySelector('[name=message]');
 
     socket.emit('createMessage', {
-        from: 'User',
         text: messageTextBox.value
     }, function () {
         messageTextBox.value = '';
