@@ -4,12 +4,13 @@ function scrollToBottom () {
     //Selector
     var messages = document.querySelector('#messages');
     var newMessage = messages.children[messages.children.length-1];
+    var lastMessage = newMessage.previousElementSibling;
     //Heights
     var clientHeight = messages.clientHeight;
     var scrollTop = messages.scrollTop;
     var scrollHeight = messages.scrollHeight;
     var newMessageHeight = newMessage.clientHeight;
-    var lastMessageHeight = newMessage.previousElementSibling ? newMessage.previousElementSibling.clientHeight : 0;
+    var lastMessageHeight = lastMessage ? lastMessage.clientHeight : 0;
 
     if (clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
         messages.scrollTo(0, scrollHeight);
